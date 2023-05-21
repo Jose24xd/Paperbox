@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <style>
+              body {
+             font-family: sans-serif;
+             margin: 50;
+             padding: 20;
+            }
+
+             header {
+             background-color: #3CB371;
+             color: white;
+             padding: 3em;
+              text-align: center;
+             }
+
+             main {
+             padding: 1em;
+              }        
+
+             label {
+             display: block;
+             padding: 1;
+            
+             }
+
+             input[type=number] {
+             padding: 2em;
+             } 
+
+             button[type=submit] {
+             background-color: #3CB371;
+             border: none;
+             color: white;
+             padding: 1em 1em;
+             }
+
+             #receipt {
+              margin-top: 1em;
+              padding: 5em;
+             border: 4px solid #3CB371;
+             }           
+       </style>
+    <meta charset="UTF-8">
+    <title>Eprianos</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+      <h1>Eprianos</h1>
+    </header>
+    <main>
+      <section>
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required />
+      </section>
+    <main>
+      <form id="weightForm">
+        <label for="weight"> Ingresa el peso en kg:</label>
+        <input type="number" id="weight" name="weight" required>
+        <button type="submit">Imprimir</button>
+      </form>
+      <div id="receipt"></div>
+    </main>
+    <footer>
+      <p>&copy; 2023 Eprianos</p>
+    </footer>
+    <script src="app.js"> </script>
+<script> weightForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const weight = document.getElementById('weight').value;
+  const date = new Date().toLocaleDateString();
+  const name = document.getElementById("name").value;
+  const receiptText = `Nombre: ${name}\nPeso: ${weight} kg\nFecha: ${date}`;
+  receipt.innerText = receiptText;
+  window.print();
+});</script>
+  </body>
+
+</html>
